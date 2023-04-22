@@ -1,0 +1,47 @@
+# Install "res client" extension in VSCode to run it
+# Add new product
+
+# Login to get access token 
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3001/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQ0MDAxMzc2NTNiMDZjMDc3MTNhNDI1IiwiaWF0IjoxNjgxOTE2MjI1LCJleHAiOjE2ODE5MTk4MjV9.rS5FSPP6Agz4-DgcM_iZWThX1jI_OejFijgubIjYjVk
+
+Content-Type: application/json
+
+{
+    "name": "Salmon",
+    "price": "200000",
+    "description": "delicious",
+    "image": "product1.jpg"
+}
+
+###
+GET http://localhost:3001/products
+
+###
+GET http://localhost:3001/products/643a531dfec0addddacba0e8
+
+###
+PUT http://localhost:3001/products/643a531dfec0addddacba0e8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQzOGM1ZWEwOTU0NzM4NmZiOWNjNjJlIiwiaWF0IjoxNjgxNTkyNDQ4LCJleHAiOjE2ODE1OTYwNDh9.nJX4Hsh6bfeVjCQeoyXfLkBzgV0guo-tlY2rcbKkvq4
+Content-Type: application/json
+
+{
+    "name": "Salmon",
+    "price": "200000",
+    "description": "delicious",
+    "image": "product1.jpg"
+}
+
+###
+DELETE http://localhost:3001/products/643a531dfec0addddacba0e8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQzOGM1ZWEwOTU0NzM4NmZiOWNjNjJlIiwiaWF0IjoxNjgxNTkyNDQ4LCJleHAiOjE2ODE1OTYwNDh9.nJX4Hsh6bfeVjCQeoyXfLkBzgV0guo-tlY2rcbKkvq4

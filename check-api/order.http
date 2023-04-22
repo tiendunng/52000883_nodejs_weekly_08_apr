@@ -1,0 +1,45 @@
+# Install "res client" extension in VSCode to run it
+POST http://localhost:3001/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQ0MDAxMzc2NTNiMDZjMDc3MTNhNDI1IiwiaWF0IjoxNjgxOTE2MjI1LCJleHAiOjE2ODE5MTk4MjV9.rS5FSPP6Agz4-DgcM_iZWThX1jI_OejFijgubIjYjVk
+Content-Type: application/json
+
+{
+    "total_price": 200000,
+    "list_products":
+    [
+        {
+            "product_id": "643a531dfec0addddacba0e8",
+            "amout": 100,
+            "price": 20000
+        }
+    ]
+} 
+
+###
+GET http://localhost:3001/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQzOGM1ZWEwOTU0NzM4NmZiOWNjNjJlIiwiaWF0IjoxNjgxNTkyNDQ4LCJleHAiOjE2ODE1OTYwNDh9.nJX4Hsh6bfeVjCQeoyXfLkBzgV0guo-tlY2rcbKkvq4
+
+###
+GET http://localhost:3001/orders/643acbb7339213b15ac87369
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQ0MDAxMzc2NTNiMDZjMDc3MTNhNDI1IiwiaWF0IjoxNjgxOTE2MjI1LCJleHAiOjE2ODE5MTk4MjV9.rS5FSPP6Agz4-DgcM_iZWThX1jI_OejFijgubIjYjVk
+
+###
+DELETE http://localhost:3001/orders/643acbb7339213b15ac87369
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQzOGM1ZWEwOTU0NzM4NmZiOWNjNjJlIiwiaWF0IjoxNjgxNTkyNDQ4LCJleHAiOjE2ODE1OTYwNDh9.nJX4Hsh6bfeVjCQeoyXfLkBzgV0guo-tlY2rcbKkvq4
+
+###
+PUT http://localhost:3001/orders/643acbb7339213b15ac87369
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjQzOGM1ZWEwOTU0NzM4NmZiOWNjNjJlIiwiaWF0IjoxNjgxNTkyNDQ4LCJleHAiOjE2ODE1OTYwNDh9.nJX4Hsh6bfeVjCQeoyXfLkBzgV0guo-tlY2rcbKkvq4
+Content-Type: application/json
+
+{
+    "total_price": 100000,
+    "list_products":
+    [
+        {
+            "product_id": "643a531dfec0addddacba0e8",
+            "amout": 100,
+            "price": 20000
+        }
+    ]
+} 

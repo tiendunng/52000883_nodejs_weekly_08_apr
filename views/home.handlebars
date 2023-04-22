@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>E-Commerce Test multer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .fa,
+        .fas {
+            color: #858585;
+        }
+
+        .fa-folder {
+            color: rgb(74, 158, 255);
+        }
+
+        i.fa,
+        table i.fas {
+            font-size: 16px;
+            margin-right: 6px;
+        }
+
+        i.action {
+            cursor: pointer;
+        }
+
+        a {
+            color: black;
+        }
+
+        .empty_row {
+            font-style: italic;
+            text-align: center;
+        }
+
+        .form-control {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {{{body}}}
+        <form action="/products" method="post" id="formAddProduct" style="max-width: 500px" enctype="multipart/form-data">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter product's name">
+            <input type="number" class="form-control" name="price" id="price" placeholder="Enter price">
+            <input type="text" class="form-control" name="description" id="description" placeholder="Enter description">
+            <input type="file" name="image" id="image" class="form-control">
+            <input type="submit" value="Thêm sản phẩm" class="form-control btn btn-success">
+        </form>
+    </div>
+
+</body>
+
+<script>
+    document.querySelector('#formAddProduct').addEventListener('submit', function (e) {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append('name', document.getElementById('name').value)
+        formData.append('price', document.getElementById('price').value)
+        formData.append('description', document.getElementById('description').value)
+        formData.append('image', document.getElementById('image').files[0])
+        fetch('/products', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Authorization': 'Bearer access_token',
+            }
+        })
+        .then ((res) => console.log(res))
+        .catch ((err) => console.log(err))
+    })
+</script>
+</html>

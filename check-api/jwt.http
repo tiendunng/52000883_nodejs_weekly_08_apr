@@ -1,0 +1,23 @@
+# Testing jwt
+GET http://localhost:3001/auth/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MTUzODMwMywiZXhwIjoxNjgxNTQxOTAzfQ.d-Hls0OT-xc0-JkWl8tSydhh-afssQXwqAo9FhJkHKo
+
+###
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3001/auth/register
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "123456",
+    "fullName": "Dung",
+    "confirmPassword": "123456"
+}
